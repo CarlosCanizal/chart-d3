@@ -21,12 +21,21 @@ const ChartView = (data, selector, theme='forestTheme')=>{
         const chartId = 'chart-'+randomId;
         const node = document.createElement("div");
         node.setAttribute('id',chartId);
-        document.getElementById(selector).appendChild(node);
+        const container = document.getElementById(selector);
 
-        let chartContainer = document.getElementById(chartId);
-        let chart = html(data, chartId);
-        chartContainer.innerHTML = chart;
-        builD3Arcs(data, 'circle-'+chartId, theme);
+        if(container){
+            container.appendChild(node);
+            let chartContainer = document.getElementById(chartId);
+            if(container){
+                let chart = html(data, chartId, theme);
+                chartContainer.innerHTML = chart;
+                builD3Arcs(data.dataset, 'circle-'+chartId, theme);
+            }else{
+                throw `Selector '${chartId}' not found in DOM`;    
+            }
+        }else{
+            throw `Selector '${selector}' not found in DOM`;
+        }
     } 
 
     const builD3Arcs = (dataset, selector, theme)=>{
@@ -62,32 +71,32 @@ const ChartView = (data, selector, theme='forestTheme')=>{
     }
 
 
-    let html = (data, selector)=>{
+    let html = (data, selector, theme)=>{
 
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         }
 
-        let sections = data.reduce((prev, item, index)=>{
+        let sections = data.dataset.reduce((prev, item, index)=>{
             let labelClass = 'left';
             if(index > 0){
                 labelClass = 'right';
             }
-            return prev += `<div class="label ${labelClass} ${state.theme || 'forestTheme'}">
+            return prev += `<div class="label ${labelClass} ${theme}">
                             <div class="label-title">${item.label}</div>
                             <div class="label-data">
                                 <span>${item.percent}%</span>
-                                <span>${numberWithCommas(item.value)} ${state.data.units}</span>
+                                <span>${numberWithCommas(item.value)} ${data.units}</span>
                             </div>
                         </div>`    
         },'');
 
         return `<div class="chart">
                     <div class="chart-container">
-                        <div class="title">${state.data.title}</div>
-                        <div class="subtitle">${numberWithCommas(state.data.total)} ${state.data.units}</div>
+                        <div class="title">${data.title}</div>
+                        <div class="subtitle">${numberWithCommas(data.total)} ${data.units}</div>
                         <div class="donut" id="circle-${selector}"></div>
-                        <div class="line-chart ${state.theme}" id="line-chart-${selector}"></div>
+                        <div class="line-chart ${theme}" id="line-chart-${selector}"></div>
                     </div>
                     <div class="labels-container clearfix">
                         ${sections}
@@ -96,7 +105,7 @@ const ChartView = (data, selector, theme='forestTheme')=>{
                 </div>`;
     }
 
-    return Object.assign({buildD3Chart: buildD3Chart(state.data.chartData, state.selector, state.theme)});
+    return Object.assign({buildD3Chart: buildD3Chart(state.data, state.selector, state.theme)});
 
 }
 
