@@ -10,14 +10,20 @@ const ChartView = (data, selector, theme='forestTheme')=>{
         theme: theme
     }
 
-    const buildD3Chart = (selector, data)=>{
-        let chart = html(selector, data);
-        let chartContainer = document.getElementById(selector);
+    const buildD3Chart = (data, selector, theme)=>{
+        const randomId = Math.floor((Math.random() * 1000) + 1);
+        const chartId = 'chart-'+randomId;
+        const node = document.createElement("div");
+        node.setAttribute('id',chartId);
+        document.getElementById(selector).appendChild(node);
+
+        let chartContainer = document.getElementById(chartId);
+        let chart = html(data, chartId);
         chartContainer.innerHTML = chart;
-        builD3Arcs(data);
+        builD3Arcs(data, 'circle-'+chartId, theme);
     } 
 
-    const builD3Arcs = (dataset)=>{
+    const builD3Arcs = (dataset, selector, theme)=>{
         const w = 158;
         const h = 158;
 
@@ -33,8 +39,8 @@ const ChartView = (data, selector, theme='forestTheme')=>{
             'sunTheme':['#B34C20','#F1BA29']
         }
 
-        const color = d3.scaleOrdinal().range(themes[state.theme]);
-        let svg = d3.select('#chart-'+state.selector)
+        const color = d3.scaleOrdinal().range(themes[theme]);
+        let svg = d3.select("#"+selector)
             .append("svg")
             .attr("width", w)
             .attr("height", h);
@@ -56,7 +62,7 @@ const ChartView = (data, selector, theme='forestTheme')=>{
     }
 
 
-    let html = (selector, data)=>{
+    let html = (data, selector)=>{
 
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -80,7 +86,7 @@ const ChartView = (data, selector, theme='forestTheme')=>{
                     <div class="chart-container">
                         <div class="title">${state.data.title}</div>
                         <div class="subtitle">${numberWithCommas(state.data.total)} ${state.data.units}</div>
-                        <div class="donut" id="chart-${selector}"></div>
+                        <div class="donut" id="circle-${selector}"></div>
                         <div class="line-chart ${state.theme}" id="line-chart-${selector}"></div>
                     </div>
                     <div class="labels-container clearfix">
@@ -90,7 +96,7 @@ const ChartView = (data, selector, theme='forestTheme')=>{
                 </div>`;
     }
 
-    return Object.assign({buildD3Chart: buildD3Chart(state.selector, state.data.chartData)});
+    return Object.assign({buildD3Chart: buildD3Chart(state.data.chartData, state.selector, state.theme)});
 
 }
 

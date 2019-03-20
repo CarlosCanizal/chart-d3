@@ -1,8 +1,11 @@
 import ChartView from './chartView';
+import ChartData from '../Models/ChartData';
 
 const MainView = controller =>{
     let data = controller.getData();
-	ChartView(data[0],'chart-1');
+    for(let chartData of data){
+        ChartView(chartData , 'charts');
+    }
 }
 
 export default MainView;
