@@ -1,1 +1,2 @@
-console.log('test');
+import Chart from './Models/Chart';
+
