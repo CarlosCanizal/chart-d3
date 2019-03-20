@@ -1,5 +1,5 @@
 import ChartData from './ChartData';
-import { get } from 'https';
+import LinearData from './LinearData';
 
 const Chart = (title, total, data, linearData, units='') =>{
 
@@ -19,25 +19,14 @@ const Chart = (title, total, data, linearData, units='') =>{
     }
 
     let getData = (data, total) => {
-        let dataList =[];
-        for(let item of data){
-            let value = parseFloat((total*(item.percent/100)).toFixed(2))
-            dataList.push(
-                ChartData(item.label, item.percent, value)
-            );
-        }
-        return dataList;
+        return data.map((item)=>{
+            let value = parseFloat((total*(item.percent/100)).toFixed(2));
+            return ChartData(item.label, item.percent, value);
+        });
     }
 
     let getLinearData = (data) => {
-        let dataList =[];
-        for(let item of data){
-            console.log(item.date instanceof Date)
-            dataList.push(
-                item
-            );
-        }
-        return dataList;
+        return data.map( item => LinearData(item.date, item.value));
     }
 
     return Object.assign({},state,{dataset:getData(data, state.total), linearData:getLinearData(linearData)});
