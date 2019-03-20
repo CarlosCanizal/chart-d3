@@ -83,9 +83,8 @@ const ChartView = (data, selector, theme='forestTheme')=>{
                         <div class="donut" id="chart-${selector}"></div>
                         <div class="line-chart ${state.theme}" id="line-chart-${selector}"></div>
                     </div>
-                    <div class="labels-container">
+                    <div class="labels-container clearfix">
                         ${sections}
-                        <div class="clear"></div>
                     </div>
                     </div>
                 </div>`;

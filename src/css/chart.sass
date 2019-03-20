@@ -1,0 +1,94 @@
+@import 'colors'
+
+.donut
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+    left: 71px
+
+.chart
+    width: 300px
+    float: left
+    margin-right: 50px;
+    position: relative
+    text-align: center
+    z-index: 2
+    overflow: auto
+    font-family: Source Sans Pro,sans-serif
+    /* outline: solid 1px blue */
+
+.chart-container
+    margin: 0 auto
+    overflow: auto
+    width: 158px
+    min-height: 158px
+    /* outline: solid 1px red */
+
+.chart 
+    .title
+        text-transform: uppercase
+        color: $mainText
+        position: relative
+        margin-top: 45px
+        font-size: 1.2rem
+        line-height: 1em
+        font-weight: 500
+        z-index: 2
+        /* outline: solid 1px red */
+
+.chart .subtitle
+    font-size: 1.5rem
+    line-height: 1em
+    font-weight: 500
+    color: $subtitleColor
+    /* outline: solid 1px red */
+
+.labels-container
+    border-bottom: 2px #cccccc solid
+    padding-bottom: 15px
+
+.label
+    width: 50%
+    float: left
+    .label-title
+        font-weight: 600
+    /* outline: solid 1px red */
+
+.label
+    &.left
+        text-align: left
+        &.forestTheme
+            .label-title
+                color: $forest
+        &.waterTheme
+            .label-title
+                color: $water
+        &.sunTheme
+            .label-title
+                color: $sun
+
+.label
+    &.right
+        text-align: right
+        &.forestTheme
+            .label-title
+                color: $forestAccent
+        &.waterTheme
+            .label-title
+                color: $waterAccent
+        &.sunTheme
+            .label-title
+                color: $sunAccent
+
+.label-data
+    span:first-child
+        margin-right: 15px
+        color: $subtitleColor
+    span:last-child
+        color: $mainText
+
+.clearfix::after
+    content: ""
+    clear: both
+    display: table
