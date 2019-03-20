@@ -10,7 +10,20 @@ const data =[
             {   label: 'Tablet',
                 percent:60
             }],
-        units: '€'
+        units: '€',
+        linearData:[
+            {date:new Date('2019', '01', '04'), value:10},
+            {date:new Date('2019', '01', '11'), value:15},
+            {date:new Date('2019', '01', '18'), value:18},
+            {date:new Date('2019', '01', '25'), value:15},
+            {date:new Date('2019', '02', '04'), value:25},
+            {date:new Date('2019', '02', '11'), value:30},
+            {date:new Date('2019', '02', '18'), value:40},
+            {date:new Date('2019', '02', '25'), value:50},
+            {date:new Date('2019', '03', '4'), value:45},
+            {date:new Date('2019', '03', '11'), value:50},
+            {date:new Date('2019', '03', '18'), value:60}
+            ]
     },
     {
         title: 'IMPRESIONS',
@@ -23,7 +36,20 @@ const data =[
             {   label: 'Tablet',
                 percent:40
             }],
-        units: ''
+        units: '',
+        linearData:[
+            {date:new Date('2019', '01', '04'), value:10},
+            {date:new Date('2019', '01', '11'), value:15},
+            {date:new Date('2019', '01', '18'), value:18},
+            {date:new Date('2019', '01', '25'), value:15},
+            {date:new Date('2019', '02', '04'), value:25},
+            {date:new Date('2019', '02', '11'), value:30},
+            {date:new Date('2019', '02', '18'), value:40},
+            {date:new Date('2019', '02', '25'), value:50},
+            {date:new Date('2019', '03', '4'), value:45},
+            {date:new Date('2019', '03', '11'), value:50},
+            {date:new Date('2019', '03', '18'), value:60}
+            ]
     },
     {
         title: 'VISITS',
@@ -36,7 +62,20 @@ const data =[
             {   label: 'Tablet',
                 percent:20
             }],
-        units: ''
+        units: '',
+        linearData:[
+            {date:new Date('2019', '01', '04'), value:10},
+            {date:new Date('2019', '01', '11'), value:15},
+            {date:new Date('2019', '01', '18'), value:18},
+            {date:new Date('2019', '01', '25'), value:15},
+            {date:new Date('2019', '02', '04'), value:25},
+            {date:new Date('2019', '02', '11'), value:30},
+            {date:new Date('2019', '02', '18'), value:40},
+            {date:new Date('2019', '02', '25'), value:50},
+            {date:new Date('2019', '03', '4'), value:45},
+            {date:new Date('2019', '03', '11'), value:50},
+            {date:new Date('2019', '03', '18'), value:60}
+            ]
     }
 ]
 

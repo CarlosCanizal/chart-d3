@@ -4,7 +4,7 @@ import Chart from '../Models/Chart.js';
 const MainController = {
     getData : function(){
         return data.map( item =>{
-            return Chart(item.title, item.total, item.data, item.units);
+            return Chart(item.title, item.total, item.data, item.linearData, item.units);
         });
     }
 }

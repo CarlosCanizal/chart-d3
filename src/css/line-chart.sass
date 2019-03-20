@@ -1,0 +1,27 @@
+@import 'colors';
+
+.line-chart
+    width: 100px
+    height: 50px
+    position: absolute
+    top: 70px
+    left: 100px
+
+    .line
+        fill: none
+        stroke-width: 1
+        &.forestTheme
+            stroke: $forest
+        &.waterTheme
+            stroke: $water
+        &.sunTheme
+            stroke: $sun
+
+    .area
+        opacity: 0.1
+        &.forestTheme
+            fill: $forest
+        &.waterTheme
+            fill: $water
+        &.sunTheme
+            fill: $sun
