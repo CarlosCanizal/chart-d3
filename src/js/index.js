@@ -1,8 +1,8 @@
 import MainController from'./controllers/mainController';
+import MainView from'./views/mainView';
 const main = ()=>{
     const controller = MainController;
-	console.log('TCL: //main -> controller', controller);
-    console.log(controller.getData());
+    MainView(controller);
 }
 
 (callback=>{
