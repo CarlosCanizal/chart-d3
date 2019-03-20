@@ -32,6 +32,7 @@ const Chart = (title, total, data, linearData, units='') =>{
     let getLinearData = (data) => {
         let dataList =[];
         for(let item of data){
+            console.log(item.date instanceof Date)
             dataList.push(
                 item
             );

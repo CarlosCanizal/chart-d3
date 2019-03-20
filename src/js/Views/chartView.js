@@ -101,7 +101,7 @@ const ChartView = (data, selector, theme='forestTheme')=>{
         let area = d3.area()
             .x((d)=>x(d.date))
             .y0(height)
-            .y1((d)=>y(d.nps));
+            .y1((d)=>y(d.value));
         
         svg.append("path")
             .data([dataset])
