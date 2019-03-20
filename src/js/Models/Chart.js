@@ -13,7 +13,6 @@ const Chart = (title, total, data, units='') =>{
     let state = {
         title : title,
         total : total,
-        data : data,
         units : units
     }
 
@@ -28,7 +27,7 @@ const Chart = (title, total, data, units='') =>{
         return dataList;
     }
 
-    return Object.assign({},state,{chartData:getData(state.data, state.total)});
+    return Object.assign({},state,{chartData:getData(data, state.total)});
 };
 
 export default Chart;

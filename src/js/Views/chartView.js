@@ -10,6 +10,12 @@ const ChartView = (data, selector, theme='forestTheme')=>{
         theme: theme
     }
 
+    const themes ={
+        'forestTheme':['#3B661D','#91CC59'],
+        'waterTheme':['#2B4C5E','#65C1DE'],
+        'sunTheme':['#B34C20','#F1BA29']
+    }
+
     const buildD3Chart = (data, selector, theme)=>{
         const randomId = Math.floor((Math.random() * 1000) + 1);
         const chartId = 'chart-'+randomId;
@@ -32,12 +38,6 @@ const ChartView = (data, selector, theme='forestTheme')=>{
         let arc = d3.arc()
             .innerRadius(innerRadius)
             .outerRadius(outerRadius);
-        
-        const themes ={
-            'forestTheme':['#3B661D','#91CC59'],
-            'waterTheme':['#2B4C5E','#65C1DE'],
-            'sunTheme':['#B34C20','#F1BA29']
-        }
 
         const color = d3.scaleOrdinal().range(themes[theme]);
         let svg = d3.select("#"+selector)

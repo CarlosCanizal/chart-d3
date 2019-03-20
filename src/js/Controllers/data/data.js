@@ -10,7 +10,7 @@ const data =[
             {   label: 'Tablet',
                 percent:60
             }],
-        'units': '€'
+        units: '€'
     },
     {
         title: 'IMPRESIONS',
@@ -23,7 +23,7 @@ const data =[
             {   label: 'Tablet',
                 percent:40
             }],
-        'units': ''
+        units: ''
     },
     {
         title: 'VISITS',
@@ -36,7 +36,7 @@ const data =[
             {   label: 'Tablet',
                 percent:20
             }],
-        'units': ''
+        units: ''
     }
 ]
 
