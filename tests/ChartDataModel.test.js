@@ -26,7 +26,6 @@ test('it throws when \'value\' is not a Number', () => {
 
 test('the response when calls ChartData Model with initial params', () => {
     const data = ChartData('Label 1',40,40);
-    console.log(data);
     expect(data).toEqual(expect.objectContaining({
         label : expect.any(String),
         percent : expect.toBeWithinRange(0, 100),
