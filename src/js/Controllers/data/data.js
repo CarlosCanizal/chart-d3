@@ -2,14 +2,13 @@ const data =[
     {
         title: 'REVENUE',
         total: 200000,
-        data :[
-            {
-                label:'Smartphone',
+        data :[            
+            {   label: 'Smartphone',
                 percent:40
-            },
-            {   label: 'Tablet',
+            },{
+                label:'Tablet',
                 percent:60
-            }],
+            },],
         units: '€',
         linearData:[
             {date:new Date('2019', '01', '04'), value:10},
@@ -55,11 +54,11 @@ const data =[
         title: 'VISITS',
         total: 600000000,
         data :[
-            {   label: 'Tablet',
-                percent:20
-            },
             {
                 label:'Smartphone',
+                percent:20
+            },
+            {   label: 'Tablet',
                 percent:80
             }],
         units: '',

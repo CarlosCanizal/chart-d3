@@ -78,16 +78,10 @@ const ChartView = (data, selector, theme='forestTheme')=>{
         let height  = 50;
         let width   = 100;
 
-        var margin = {top: 0, right: 0, bottom: 0, left: 0};
-
-        width =     width - margin.left - margin.right;
-        height =    height - margin.top - margin.bottom;
-
         let svg = d3.select('#'+selector).append("svg")
-        .attr("width",  width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .attr("width",  width)
+        .attr("height", height)
+        .append("g");
 
         let x = d3.scaleTime().range([0, width]);
         x.domain(d3.extent(dataset, (d)=> d.date ));
@@ -126,13 +120,15 @@ const ChartView = (data, selector, theme='forestTheme')=>{
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         }
-
+        let reverse = data.dataset[0].label =='Smartphone'?true:false;
         let sections = data.dataset.reduce((prev, item, index)=>{
-            let labelClass = 'left';
+            let floatClass = reverse?'float-right':'';
+            let labelClass = reverse?'right':'left';
             if(index > 0){
-                labelClass = 'right';
+                labelClass = reverse?'left':'right';
             }
-            return prev += `<div class="label ${labelClass} ${theme}">
+
+            return prev += `<div class="label ${labelClass} ${floatClass} ${theme}">
                             <div class="label-title">${item.label}</div>
                             <div class="label-data">
                                 <span>${item.percent}%</span>
