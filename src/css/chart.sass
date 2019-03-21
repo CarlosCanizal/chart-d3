@@ -10,20 +10,18 @@
 .chart
     width: 300px
     float: left
-    margin-right: 50px;
+    margin: 0 30px;
     position: relative
     text-align: center
     z-index: 2
     overflow: auto
     font-family: Source Sans Pro,sans-serif
-    /* outline: solid 1px blue */
 
 .chart-container
     margin: 0 auto
     overflow: auto
     width: 158px
     min-height: 158px
-    /* outline: solid 1px red */
 
 .chart 
     .title
@@ -46,14 +44,14 @@
 
 .labels-container
     border-bottom: 2px #cccccc solid
-    padding-bottom: 15px
+    padding-bottom: 10px
 
 .label
     width: 50%
     float: left
     .label-title
         font-weight: 600
-    /* outline: solid 1px red */
+        line-height: 1.5em
 
 .label
     &.left
@@ -83,7 +81,7 @@
 
 .label-data
     span:first-child
-        margin-right: 15px
+        margin-right: 10px
         color: $subtitleColor
     span:last-child
         color: $mainText

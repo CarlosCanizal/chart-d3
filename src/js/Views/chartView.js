@@ -21,6 +21,7 @@ const ChartView = (data, selector, theme='forestTheme')=>{
         const chartId = 'chart-'+randomId;
         const node = document.createElement("div");
         node.setAttribute('id',chartId);
+        node.setAttribute('class','chart');
         const container = document.getElementById(selector);
 
         if(container){
@@ -140,17 +141,15 @@ const ChartView = (data, selector, theme='forestTheme')=>{
                         </div>`    
         },'');
 
-        return `<div class="chart">
-                    <div class="chart-container">
-                        <div class="title">${data.title}</div>
-                        <div class="subtitle">${numberWithCommas(data.total)} ${data.units}</div>
-                        <div class="donut" id="circle-${selector}"></div>
-                        <div class="line-chart ${theme}" id="line-${selector}"></div>
-                    </div>
-                    <div class="labels-container clearfix">
-                        ${sections}
-                    </div>
-                    </div>
+        return `<div class="chart-container">
+                    <div class="title">${data.title}</div>
+                    <div class="subtitle">${numberWithCommas(data.total)} ${data.units}</div>
+                    <div class="donut" id="circle-${selector}"></div>
+                    <div class="line-chart ${theme}" id="line-${selector}"></div>
+                </div>
+                <div class="labels-container clearfix">
+                    ${sections}
+                </div>
                 </div>`;
     }
 

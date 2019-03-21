@@ -1,6 +1,41 @@
-@import "chart";
-@import "line-chart";
+@import "chart"
+@import "line-chart"
 
 body
     margin: 0
     padding: 0
+
+#carousel
+    min-width: 360px
+    width: 1080px
+    margin: 0 auto
+    overflow: hidden
+
+#riel
+    position: relative
+    width: 1080px
+    overflow: auto
+    left: 0
+    transition: left 0.5s
+
+#navs
+    text-align: center
+    margin-top: 15px
+    display: none
+
+.nav
+    display: inline-block
+    margin-right: 20px
+    border-radius: 50%
+    width: 20px
+    height: 20px
+    background-color: rgba(204,204,204, 0.8)
+    cursor: pointer
+    &:last-child
+        margin-right: 0
+
+@media only screen and (max-width: 1080px)
+    #carousel
+        width: 360px
+    #navs
+        display: block
