@@ -18,3 +18,11 @@ In the project directory, run command:
 Open [http://localhost:8080/src/dist](http://localhost:8080/src/dist) to view it in the browser.
 
 This will start the App in a new browser's window
+
+## Run Test
+
+In the project directory, run command:
+
+### `npm test`
+
+This will run the test suite.
