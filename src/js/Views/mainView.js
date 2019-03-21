@@ -27,4 +27,9 @@ const handleClick = (e)=>{
     riel.style.left = offset;
 }
 
+window.addEventListener("resize", ()=>{
+    let riel = document.getElementById('riel');
+    riel.style.left = "0px";
+});
+
 export default MainView;
