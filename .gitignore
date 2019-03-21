@@ -2,6 +2,7 @@
 node_modules
 src/dist
 npm-debug.log
-.firebase
+.firebase/
+.firebase/*
 .firebaserc
 firebase.json
